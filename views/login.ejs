@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo">
+        </div>
+    </div>
+
+    <div class="login-container">
+        <h1>Sign In</h1>
+        <p class="subtext">
+            Don't have an account? <a href="#">Sign up</a>
+        </p>
+
+        <form>
+            <div class="input-group">
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Password (8+ characters)" required>
+            </div>
+            <a href="#" class="forgot-password">Forgot password?</a>
+            <button type="submit" class="primary-btn"><a href="explore.html">Sign In</a></button>
+        </form>
+
+        <div class="divider">or sign in with</div>
+
+        <div class="social-buttons">
+            <button class="facebook-btn">Log In with Facebook</button>
+            <button class="google-btn">Log In with Google</button>
+        </div>
+    </div>
+    <script src="/js/login.js"></script>
+</body>
+</html>

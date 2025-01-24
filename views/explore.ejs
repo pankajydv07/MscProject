@@ -1,0 +1,110 @@
+<% layout("/layouts/boilerplate") %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated EventHub</title>
+    <link rel="stylesheet" href="/css/explore.css">
+</head>
+
+<body>
+    <!-- Header -->
+    
+    <!-- EventHub Section -->
+    
+    <div class="header-container">
+        <!-- <h1>EventHub</h1> -->
+        <div class="profile-container">
+            <div class="notification-container">
+                <div class="notification-icon" onclick="toggleNotifications()">
+                    🔔
+                    <span class="notification-count" id="notification-count">3</span>
+                </div>
+                <div class="notification-list" id="notification-list">
+                    <ul>
+                        <li class="notification-item" onclick="markAsRead(this)">
+                            New message from John
+                        </li>
+                        <li class="notification-item" onclick="markAsRead(this)">
+                            Meeting reminder at 3 PM
+                        </li>
+                        <li class="notification-item" onclick="markAsRead(this)">
+                            Your report was approved
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="profile-icon">
+                <a href="/profile">
+                <img src="data:image/png;base64,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" alt="Profile Icon"> 
+            </a>
+            </div>
+        </div>
+        
+      </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Search Section -->
+        <section class="search-section">
+            <input type="text" placeholder="Search for events..." id="searchInput">
+            <button onclick="searchEvents()">Search</button>
+        </section>
+        
+
+        <!-- Filters Section -->
+        <section class="event-filters">
+            <button onclick="filterEvents('all')">All Events</button>
+            <button onclick="filterEvents('Guest Lecture')">Guest Lectures</button>
+            <button onclick="filterEvents('Hackathon')">Hackathons</button>
+            <button onclick="filterEvents('Workshop')">Workshops</button>
+            <button onclick="filterEvents('skill-assessment')">Skill Assessments</button>
+        </section>
+
+        <!-- Search Section Message -->
+        <section id="no-results" style="display:none;">No events found</section>
+
+
+        <!-- Cards Section -->
+
+        <section class="event-cards">
+            <% for(even of event) {%>
+            <a href="/show/<%=even.id  %>" style="text-decoration: none;">
+            <div class="card" data-type="<%= even.event_type %>">
+                <img src="<%= even.img %>"
+                    alt="Event Image">
+                <h3><%= even.name %></h3>
+                <h4><%= new Date(even.date.start).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) %></h4>
+                <p><%= even.tagline %>  </p>
+            </div>
+            </a>
+            <% } %>
+            
+        </section>
+        <div>
+            <center>
+            <label for="date-filter-dropdown" class="FilterByDate">Filter by date:</label>
+            <select id="date-filter-dropdown">
+                <option value="">Select a filter</option>
+                <option value="today">Today</option>
+                <option value="this-week">This Week</option>
+                <option value="this-month">This Month</option>
+            </select>
+            <button id="apply-filters">Apply Filter</button>
+        </div>
+        <div id="event-list"></div>
+    </center>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 EventHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/explore.js"></script>
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="aFR7zA4vwyCt89o_rI9sS";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        </script>
+</body>
+
+</html>

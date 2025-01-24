@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerplate") %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+   
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>Profile</h1>
+    </div>
+
+    <div class="profile-content">
+        <div class="profile-pic">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture">
+            <button class="edit-button" onclick="editProfilePicture(this)">Edit Picture</button>
+        </div>
+
+        <div class="profile-details">
+            <h3>Personal Information</h3>
+            <div class="detail-item">
+                <label>Username:</label>
+                <span>John Doe</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Email:</label>
+                <span>johndoe@example.com</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Gender:</label>
+                <span>Male</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Contact No:</label>
+                <span>+1234567890</span>
+            </div>
+
+            <div class="detail-item">
+                <label>University Name:</label>
+                <span>ABC University</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Degree Stream:</label>
+                <span>Computer Science</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Year of Passing:</label>
+                <span>2025</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Interests:</label>
+                <span>AI, Robotics, Web Development</span>
+            </div>
+
+            <div class="detail-item">
+                <label>Skills:</label>
+                <span>Python, JavaScript, HTML/CSS</span>
+            </div>
+
+            <button class="edit-button" onclick="enableEditAll(this)">Edit All</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 ABC University Hackathon Portal</p>
+    </div>
+</div>
+
+<script src="/js/profile.js"></script>
+</body>
+</html>

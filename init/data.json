@@ -1,0 +1,150 @@
+[
+ 
+  {
+    "name": "The Future of Quantum Computing",
+    "tagline": "Insights from an Industry Leader",
+    "description": "An inspiring guest lecture on the advancements, challenges, and future of quantum computing by a leading expert.",
+    "date": {
+      "start": "2025-02-20T00:00:00.000Z",
+      "end": "2025-02-20T00:00:00.000Z"
+    },
+    "venue": "SRM University-AP, Auditorium",
+    "mode": "Offline",
+    "tracks": "Quantum Fundamentals",
+    "rules": "No photography or recording allowed",
+    "contact_email": "quantumfuture@srmap.edu.in",
+    "host": "Dr. John Doe",
+    "event_type": "Guest Lecture",
+    "timezone": "GMT+5:30",
+    "contact": "9876543210",
+    "countdown": "3456",
+    "img": "https://i.ibb.co/s9Zm7SG/quantum.png",
+    "link": "https://example.com/guest-lecture-link1"
+  },
+  {
+    "name": "AI/ML Workshop",
+    "tagline": "Hands-On Training on Artificial Intelligence and Machine Learning",
+    "description": "A comprehensive workshop designed to provide hands-on experience in AI/ML concepts, tools, and real-world applications.",
+    "date": {
+      "start": "2025-02-15T00:00:00.000Z",
+      "end": "2025-02-16T00:00:00.000Z"
+    },
+    "venue": "SRM University-AP, Lecture Hall 3",
+    "mode": "Offline",
+    "tracks": "AI Basics, ML Techniques",
+    "rules": "Bring laptops with Python installed",
+    "contact_email": "aimlworkshop@srmap.edu.in",
+    "host": "Prof. Jane Smith",
+    "event_type": "Workshop",
+    "timezone": "GMT+5:30",
+    "contact": "9123456789",
+    "countdown": "2345",
+    "img": "https://i.ibb.co/DtSkdxS/ai.jpg",
+    "link": "https://example.com/workshop-link1"
+  },
+  {
+    "name": "Hackathon X",
+    "tagline": "India’s largest national-level cybersecurity competition",
+    "description": "A prestigious event to showcase cybersecurity skills, tackle real-world challenges, and gain internship placement opportunities with the Government of Andhra Pradesh.",
+    "date": {
+      "start": "2025-02-08T00:00:00.000Z",
+      "end": "2025-02-28T00:00:00.000Z"
+    },
+    "venue": "VIT-AP University, Vijayawada & Osmania University, Hyderabad",
+    "mode": "Hybrid",
+    "tracks": "Cybersecurity Challenges",
+    "rules": "No pre-built solutions allowed",
+    "contact_email": "hackathonx@vit.edu.in",
+    "host": "Cyber Initiative Group",
+    "event_type": "Hackathon",
+    "timezone": "GMT+5:30",
+    "contact": "9812345678",
+    "countdown": "5678",
+    "img": "https://i.ibb.co/sHTKj1G/vit.jpg",
+    "link": "https://example.com/hackathon-x-link"
+  },
+  {
+    "name": "TechXcelerate 2025",
+    "tagline": "Hackathon, ₹5,00,000 Prize Pool & Internship Drive!",
+    "description": "A gateway to innovation, learning, and career opportunities through workshops, hackathon, and an internship drive.",
+    "date": {
+      "start": "2025-03-22T00:00:00.000Z",
+      "end": "2025-03-23T00:00:00.000Z"
+    },
+    "venue": "BITS Pilani Hyderabad",
+    "mode": "Offline",
+    "tracks": "AI/ML, DevOps, Web Development",
+    "rules": "Teams of up to 4 members only",
+    "contact_email": "techxcelerate@bits-pilani.ac.in",
+    "host": "Tech Club",
+    "event_type": "Hackathon",
+    "timezone": "GMT+5:30",
+    "contact": "8001234567",
+    "countdown": "7890",
+    "img": "https://i.ibb.co/TmG3NGH/bits.jpg",
+    "link": "https://example.com/techxcelerate-link"
+  },
+  {
+    "name": "VOLTA Internships",
+    "tagline": "Exclusive Internship Opportunities at VOLTA",
+    "description": "Internship positions for passionate, innovative individuals at VOLTA, a student startup at SRM University-AP.",
+    "date": {
+      "start": "2025-01-24T00:00:00.000Z",
+      "end": "2025-01-31T00:00:00.000Z"
+    },
+    "venue": "SRM University-AP",
+    "mode": "Offline",
+    "tracks": "Technical Internships, Research",
+    "rules": "Applicants must be undergraduate students",
+    "contact_email": "voltainterns@srm.edu.in",
+    "host": "VOLTA Team",
+    "event_type": "Internship Drive",
+    "timezone": "GMT+5:30",
+    "contact": "7999888777",
+    "countdown": "8765",
+    "img": "https://example.com/volta-internships-image.jpg",
+    "link": "https://example.com/volta-internships-link"
+  },
+  {
+    "name": "Tech Expo at INFINITUS'25",
+    "tagline": "Showcase Creativity and Innovation",
+    "description": "The Tech Expo is a flagship event of INFINITUS'25, offering a platform to showcase creativity, network with experts, and discover futuristic projects.",
+    "date": {
+      "start": "2025-02-05T00:00:00.000Z",
+      "end": "2025-02-08T00:00:00.000Z"
+    },
+    "venue": "SRM University-AP",
+    "mode": "Offline",
+    "tracks": "Innovative Projects",
+    "rules": "Projects must be approved in advance",
+    "contact_email": "techexpo@srm.edu.in",
+    "host": "INFINITUS Team",
+    "event_type": "Exhibition",
+    "timezone": "GMT+5:30",
+    "contact": "7999111222",
+    "countdown": "3210",
+    "img": "https://i.ibb.co/k9Z4X72/Screenshot-2025-01-25-015747.png",
+    "link": "https://example.com/tech-expo-link"
+  },
+  {
+    "name": "HackSRM: Innovate Beyond Limits",
+    "tagline": "Visionary. Collaborative. Transformative.",
+    "description": "Welcome to HackSRM'25, the premier national-level hackathon hosted by SRM University-AP.",
+    "date": {
+      "start": "2025-02-05T00:00:00.000Z",
+      "end": "2025-02-06T00:00:00.000Z"
+    },
+    "venue": "APJ Abdul Kalam Auditorium, SRM-AP, Amaravati, India",
+    "mode": "Hybrid",
+    "tracks": "AI/ML, IoT, Blockchain",
+    "rules": "Participants must follow the code of conduct",
+    "contact_email": "hacksrm25@srm.edu.in",
+    "host": "HackSRM Committee",
+    "event_type": "Hackathon",
+    "timezone": "GMT+5:30",
+    "contact": "7999000111",
+    "countdown": "6543",
+    "img": "https://i.ibb.co/D5GMS6f/Screenshot-2025-01-25-015634.png",
+    "link": "https://example.com/hacksrm-link"
+  }
+]
