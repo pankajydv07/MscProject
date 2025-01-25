@@ -1,0 +1,372 @@
+
+<% layout("/layouts/boilerplate") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coding Quiz Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+        }
+        .quiz-container {
+            background-color: white;
+            border-radius: 12px;
+            margin-top: 50px;
+            margin-left: 350px ;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        .setup-screen, .result-screen {
+            text-align: center;
+        }
+        .level-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .level-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .level-btn.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .level-btn.inactive {
+            background-color: #e5e7eb;
+            color: #4b5563;
+        }
+        .start-btn, .restart-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .start-btn:disabled {
+            background-color: #d1d5db;
+            cursor: not-allowed;
+        }
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .question {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .option {
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background-color: #f3f4f6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+        }
+        .option:hover {
+            background-color: #f9fafb;
+        }
+        .option.correct {
+            background-color: #dcfce7;
+            border-color: #22c55e;
+        }
+        .option.incorrect {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="quizApp" class="quiz-container">
+        <div id="setupScreen" class="setup-screen">
+            <h2>Quiz Setup</h2>
+            <div class="level-buttons" id="levelButtons">
+                <button class="level-btn active" data-level="Basic">Basic Level</button>
+                <button class="level-btn active" data-level="Medium">Medium Level</button>
+                <button class="level-btn active" data-level="Advanced">Advanced Level</button>
+            </div>
+            <button id="startBtn" class="start-btn">Start Quiz</button>
+        </div>
+
+        <div id="quizScreen" class="hidden">
+            <div class="quiz-header">
+                <div id="timer">30 sec</div>
+                <div id="levelIndicator">Level</div>
+            </div>
+            <div id="question" class="question"></div>
+            <div id="options" class="options"></div>
+        </div>
+
+        <div id="resultScreen" class="hidden result-screen">
+            <h2>Quiz Complete!</h2>
+            <p id="scoreDisplay"></p>
+            <button id="restartBtn" class="restart-btn">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        // Quiz Questions Generator
+        const generateQuestions = () => {
+            const questionTypes = [
+                {
+                    category: 'Basic Programming',
+                    questions: [
+                        {
+                            question: 'What does HTML stand for?',
+                            options: [
+                                { text: 'Hyper Text Markup Language', isCorrect: true },
+                                { text: 'High Tech Modern Language', isCorrect: false },
+                                { text: 'Hyperlink and Text Markup Language', isCorrect: false },
+                                { text: 'Home Tool Markup Language', isCorrect: false }
+                            ]
+                        },
+                        {
+                            question: 'Which keyword declares a variable in JavaScript?',
+                            options: [
+                                { text: 'var', isCorrect: false },
+                                { text: 'let', isCorrect: true },
+                                { text: 'variable', isCorrect: false },
+                                { text: 'v', isCorrect: false }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    category: 'Advanced Programming',
+                    questions: [
+                        {
+                            question: 'What is a closure in JavaScript?',
+                            options: [
+                                { text: 'A function with no arguments', isCorrect: false },
+                                { text: 'A function that returns another function', isCorrect: true },
+                                { text: 'A method to close connections', isCorrect: false },
+                                { text: 'A type of error handling', isCorrect: false }
+                            ]
+                            
+                        },
+                        
+                        {
+                            question: 'What does REST stand for?',
+                            options: [
+                                { text: 'Remote Execution Service Type', isCorrect: false },
+                                { text: 'Representational State Transfer', isCorrect: true },
+                                { text: 'Reliable Enterprise Service Transmission', isCorrect: false },
+                                { text: 'Request Endpoint Service Transfer', isCorrect: false }
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+            const allQuestions = [];
+            const levels = ['Basic', 'Medium', 'Advanced'];
+
+            while (allQuestions.length < 50) {
+                const randomType = questionTypes[Math.floor(Math.random() * questionTypes.length)];
+                const randomQuestion = randomType.questions[Math.floor(Math.random() * randomType.questions.length)];
+                
+                allQuestions.push({
+                    ...randomQuestion,
+                    level: levels[Math.floor(Math.random() * levels.length)]
+                });
+            }
+
+            return allQuestions;
+        };
+
+        class CodingQuiz {
+            constructor() {
+                this.allQuestions = generateQuestions();
+                this.quizQuestions = [];
+                this.currentQuestionIndex = 0;
+                this.score = 0;
+                this.timeRemaining = 30;
+                this.selectedLevels = ['Basic', 'Medium', 'Advanced'];
+                this.timerInterval = null;
+
+                this.initializeEventListeners();
+            }
+
+            initializeEventListeners() {
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.addEventListener('click', () => this.toggleLevel(btn));
+                });
+
+                document.getElementById('startBtn').addEventListener('click', () => this.startQuiz());
+                document.getElementById('restartBtn').addEventListener('click', () => this.resetQuiz());
+            }
+
+            toggleLevel(btn) {
+                btn.classList.toggle('active');
+                btn.classList.toggle('inactive');
+
+                const level = btn.dataset.level;
+                this.selectedLevels = Array.from(document.querySelectorAll('.level-btn.active'))
+                    .map(activeBtn => activeBtn.dataset.level);
+
+                document.getElementById('startBtn').disabled = this.selectedLevels.length === 0;
+            }
+
+            filterQuestions() {
+                return this.allQuestions
+                    .filter(q => this.selectedLevels.includes(q.level))
+                    .sort(() => 0.5 - Math.random())
+                    .slice(0, 10);
+            }
+
+            startQuiz() {
+                this.quizQuestions = this.filterQuestions();
+                this.currentQuestionIndex = 0;
+                this.score = 0;
+                this.timeRemaining = 30;
+
+                document.getElementById('setupScreen').classList.add('hidden');
+                document.getElementById('quizScreen').classList.remove('hidden');
+                document.getElementById('resultScreen').classList.add('hidden');
+
+                this.loadQuestion();
+                this.startTimer();
+            }
+
+            loadQuestion() {
+                const currentQuestion = this.quizQuestions[this.currentQuestionIndex];
+                document.getElementById('question').textContent = currentQuestion.question;
+                document.getElementById('levelIndicator').textContent = currentQuestion.level + ' Level';
+
+                const optionsContainer = document.getElementById('options');
+                optionsContainer.innerHTML = '';
+
+                currentQuestion.options.forEach((option) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.classList.add('option');
+                    optionElement.textContent = option.text;
+                    optionElement.addEventListener('click', () => this.selectOption(option, optionElement));
+                    optionsContainer.appendChild(optionElement);
+                });
+            }
+
+            selectOption(option, optionElement) {
+                // Prevent multiple selections
+                const optionElements = document.querySelectorAll('.option');
+                if (Array.from(optionElements).some(el => el.classList.contains('correct') || el.classList.contains('incorrect'))) {
+                    return;
+                }
+
+                if (option.isCorrect) {
+                    optionElement.classList.add('correct');
+                    this.score++;
+                } else {
+                    optionElement.classList.add('incorrect');
+                    // Highlight the correct answer
+                    const correctOption = Array.from(optionElements).find(el => 
+                        this.quizQuestions[this.currentQuestionIndex].options.find(opt => opt.isCorrect && opt.text === el.textContent)
+                    );
+                    if (correctOption) {
+                        correctOption.classList.add('correct');
+                    }
+                }
+
+                setTimeout(() => {
+                    this.nextQuestion();
+                }, 1500);
+            }
+
+            nextQuestion() {
+                this.currentQuestionIndex++;
+
+                if (this.currentQuestionIndex < this.quizQuestions.length) {
+                    this.loadQuestion();
+                } else {
+                    this.endQuiz();
+                }
+            }
+
+            startTimer() {
+                const timerElement = document.getElementById('timer');
+                
+                // Clear any existing interval
+                if (this.timerInterval) {
+                    clearInterval(this.timerInterval);
+                }
+
+                this.timerInterval = setInterval(() => {
+                    this.timeRemaining--;
+                    timerElement.textContent = `${this.timeRemaining} sec`;
+
+                    if (this.timeRemaining <= 0) {
+                        clearInterval(this.timerInterval);
+                        this.endQuiz();
+                    }
+                }, 1000);
+            }
+
+            endQuiz() {
+                // Clear the timer interval if it's still running
+                if (this.timerInterval) {
+                    clearInterval(this.timerInterval);
+                }
+
+                document.getElementById('quizScreen').classList.add('hidden');
+                document.getElementById('resultScreen').classList.remove('hidden');
+                document.getElementById('scoreDisplay').textContent = `Your Score: ${this.score} / ${this.quizQuestions.length}`;
+            }
+
+            resetQuiz() {
+                // Clear the timer interval if it's still running
+                if (this.timerInterval) {
+                    clearInterval(this.timerInterval);
+                }
+
+                document.getElementById('resultScreen').classList.add('hidden');
+                document.getElementById('setupScreen').classList.remove('hidden');
+                
+                // Reset level buttons
+                document.querySelectorAll('.level-btn').forEach(btn => {
+                    btn.classList.add('active');
+                    btn.classList.remove('inactive');
+                });
+
+                // Reset start button
+                document.getElementById('startBtn').disabled = false;
+                this.selectedLevels = ['Basic', 'Medium', 'Advanced'];
+            }
+        }
+
+        // Initialize the quiz
+        new CodingQuiz();
+    </script>
+</body>
+</html>

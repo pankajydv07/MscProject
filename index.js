@@ -85,6 +85,9 @@ app.get("/profile", (req, res) => {
 app.get("/organize", (req, res) => {
     res.render("organizer.ejs");
 });
+app.get("/quiz", (req, res) => {
+    res.render("quiz.ejs");
+});
 
 app.post("/explore", async (req, res) => {
     const { name, tagline, description, date, venue, img = "https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/ai-ml/artificial-intelligence-1920.jpg", mode, tracks, rules, contact_email, host, event_type, timezone, contact, countdown } = req.body;
