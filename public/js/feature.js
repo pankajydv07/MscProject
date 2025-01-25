@@ -11,11 +11,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 console.log("Boilerplate JS loaded with animations.");
 
 const features = [
-    {
-        title: "AI-Powered Personalization",
-        description: "Experience tailored learning recommendations and content suggestions based on your unique academic journey and interests.",
-        image: "https://www.pranathiss.com/blog/wp-content/uploads/Evolution-of-AI-Powered-Personalization.webp"
-    },
+    
     {
         title: "Repository",
         description: "Manage all your course materials, assignments, and project files in a centralized, cloud-based repository for easy access and collaboration.",
