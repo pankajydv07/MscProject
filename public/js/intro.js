@@ -2,27 +2,37 @@ const features = [
     {
         title: "AI-Powered Personalization",
         description: "Experience tailored learning recommendations and content suggestions based on your unique academic journey and interests.",
-        image: "rashi.jpg"
+        image: "https://www.pranathiss.com/blog/wp-content/uploads/Evolution-of-AI-Powered-Personalization.webp"
     },
     {
-        title: "Interactive Progress Tracking",
-        description: "Monitor your academic achievements with real-time progress indicators and detailed performance analytics.",
-        image: "progress-tracking.jpg"
+        title: "Repository",
+        description: "Manage all your course materials, assignments, and project files in a centralized, cloud-based repository for easy access and collaboration.",
+        image: "https://www.simplilearn.com/ice9/free_resources_article_thumb/What_is_a_Git_Repository.jpg"
     },
     {
-        title: "Achievement System",
-        description: "Stay motivated with our comprehensive badge system and rewards program that celebrates your academic milestones.",
-        image: "gamification.jpg"
+        title: "Skill Enhancement",
+        description: "Receive personalized recommendations for skill-building courses, workshops, and resources based on your academic and career goals.",
+        image: "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/b/5/b52239af532eca9822628f0cc6a1820a8d5be7e22cc7a5501c6f7bc43420a887/skill-enhancement-slide1.png"
     },
     {
-        title: "Smart Team Matchmaking",
-        description: "Connect with like-minded peers through our intelligent matchmaking algorithm for group projects and study sessions.",
-        image: "team-matching.jpg"
+        title: "Chatbot Assistant",
+        description: "Get instant answers to your questions and guidance on academic matters through our 24/7 conversational AI assistant.",
+        image: "https://5.imimg.com/data5/PM/IN/RI/SELLER-100932779/oracle-digital-assistant-or-chatbot-software-500x500.png"
     },
     {
-        title: "Customizable Interface",
-        description: "Personalize your dashboard layout with drag-and-drop widgets and custom color themes to match your preferences.",
-        image: "customization.jpg"
+        title: "Timetable Customization",
+        description: "Easily create and manage your class schedule, reminders, and assignment deadlines with our flexible timetable tool.",
+        image: "https://i.pinimg.com/736x/5c/fa/77/5cfa778c4ecc475576d96c912e87adf5.jpg"
+    },
+    {
+        title: "Customized Event List",
+        description: "Discover and add relevant events, lectures, and extracurricular activities to your personal calendar based on your interests and academic program.",
+        image: "https://mp-cdn.elgato.com/media/47292cf4-dff0-48e7-984f-647477412786/6fc96241-95a3-4e11-a4a4-3a40c0e8fda1/Hyper_Event_List__Alerts-preview-optimized-3974ad43-1a1f-45f8-8e11-ce1bf5972d84.png"
+    },
+    {
+        title: "Event Filtering by Time",
+        description: "Quickly find and select events that fit your schedule using our advanced filtering options for date, time, and location.",
+        image: "https://onlinehelp.ncr.com/Retail/Workstations/Retail%20Terminal%20Software/RPSW/HTML/Resources/Images/Ch4/FilteringEvents_DateTime_528x297.jpg"
     }
 ];
 

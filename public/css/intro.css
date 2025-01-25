@@ -107,7 +107,7 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
     padding: 4rem 5%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #0927eb, #868dec);
     color: var(--white);
 }
 

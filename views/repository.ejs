@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Repositories</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1d1d1d;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    .profile {
+      display: flex;
+      align-items: center;
+      background-color: #2b2b2b;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+    .profile img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+    .profile h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .profile p {
+      margin: 5px 0 0 0;
+      font-size: 14px;
+      color: #8a8a8a;
+    }
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .repo-card {
+      background-color: #2b2b2b;
+      padding: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .repo-card:hover {
+      background-color: #333333;
+    }
+    .repo-card h3 {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+    .repo-card p {
+      font-size: 14px;
+      color: #8a8a8a;
+      margin: 0;
+    }
+    .add-repo {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .add-repo:hover {
+      background-color: #45a049;
+    }
+    .add-repo-form {
+      background-color: #2b2b2b;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .add-repo-form input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 1px solid #4a4a4a;
+      border-radius: 4px;
+      color: #f1f1f1;
+    }
+    .add-repo-form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .add-repo-form button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile">
+      <img src="https://via.placeholder.com/60" alt="User Avatar" id="userAvatar">
+      <div>
+        <h2 id="username">source-joe</h2>
+        <p id="userEmail">johndoe@github.com</p>
+      </div>
+    </div>
+    <h1>My Repositories</h1>
+    <div class="repo-grid" id="repoGrid">
+      <!-- Repositories will be dynamically rendered here -->
+    </div>
+    <button class="add-repo" onclick="showAddRepoForm()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      Add New Repository
+    </button>
+    <div class="add-repo-form" id="addRepoForm" style="display: none;">
+      <h2>Add New Repository</h2>
+      <input type="text" id="newRepoName" placeholder="Repository Name">
+      <input type="file" id="newRepoPath" webkitdirectory directory>
+      <button onclick="addRepository()">Add Repository</button>
+    </div>
+  </div>
+
+  <script>
+    // User data
+    const userData = {
+      username: 'source-rashi',
+      email: 'source-rashi@github.com',
+      avatar: 'https://via.placeholder.com/60'
+    };
+
+    // Repository data
+    let repositories = [
+      {
+        name: 'my-awesome-repo',
+        description: 'This is a description of my awesome repository.'
+      },
+      {
+        name: 'another-great-repo',
+        description: 'This is a description of another great repository.'
+      },
+      {
+        name: 'cool-project',
+        description: 'This is a description of a cool project repository.'
+      },
+      {
+        name: 'useful-utils',
+        description: 'This is a description of a repository with useful utilities.'
+      },
+      {
+        name: 'learning-new-tech',
+        description: 'This is a description of a repository for learning new technologies.'
+      },
+      {
+        name: 'personal-website',
+        description: 'This is a description of a repository for my personal website.'
+      }
+    ];
+
+    // Function to render repositories
+    function renderRepositories() {
+      const repoGrid = document.getElementById('repoGrid');
+      repoGrid.innerHTML = '';
+
+      repositories.forEach(repo => {
+        const repoCard = document.createElement('div');
+        repoCard.classList.add('repo-card');
+        repoCard.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description}</p>
+        `;
+        repoGrid.appendChild(repoCard);
+      });
+    }
+
+    // Function to add a new repository
+    function addRepository() {
+      const newRepoName = document.getElementById('newRepoName').value;
+      const newRepoPath = document.getElementById('newRepoPath').files[0];
+
+      if (!newRepoName || !newRepoPath) {
+        alert('Please provide a name and select a local repository.');
+        return;
+      }
+
+      // Create a new repository object
+      const newRepo = {
+        name: newRepoName,
+        description: 'This is a description of my new repository.'
+      };
+
+      // Add the new repository to the list
+      repositories.push(newRepo);
+
+      // Clear the input fields
+      document.getElementById('newRepoName').value = '';
+      document.getElementById('newRepoPath').value = '';
+
+      // Hide the add repo form
+      hideAddRepoForm();
+
+      // Render the updated repository list
+      renderRepositories();
+    }
+
+    // Function to show the add repository form
+    function showAddRepoForm() {
+      document.getElementById('addRepoForm').style.display = 'block';
+    }
+
+    // Function to hide the add repository form
+    function hideAddRepoForm() {
+      document.getElementById('addRepoForm').style.display = 'none';
+    }
+
+    // Initialize user data
+    document.getElementById('username').textContent = userData.username;
+    document.getElementById('userEmail').textContent = userData.email;
+    document.getElementById('userAvatar').src = userData.avatar;
+
+    // Initial render
+    renderRepositories();
+  </script>
+</body>
+</html>

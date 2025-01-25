@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Time Table</title>
+    <link rel="stylesheet" href="/css/timetable.css">
+</head>
+<body>
+    <h1>Update Your Time Table</h1>
+    <form id="timeTableForm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>9:00 - 10:00</th>
+                    <th>10:00 - 11:00</th>
+                    <th>11:00 - 12:00</th>
+                    <th>12:00 - 1:00</th>
+                    <th>1:30 - 2:30</th>
+                    <th>2:30 - 3:30</th>
+                    <th>3:30 - 4:30</th>
+                    <th>4:30 - 5:30</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td><input type="checkbox" name="monday-9"></td>
+                    <td><input type="checkbox" name="monday-10"></td>
+                    <td><input type="checkbox" name="monday-11"></td>
+                    <td><input type="checkbox" name="monday-12"></td>
+                    <td><input type="checkbox" name="monday-1-30"></td>
+                    <td><input type="checkbox" name="monday-2-30"></td>
+                    <td><input type="checkbox" name="monday-3-30"></td>
+                    <td><input type="checkbox" name="monday-4-30"></td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td><input type="checkbox" name="tuesday-9"></td>
+                    <td><input type="checkbox" name="tuesday-10"></td>
+                    <td><input type="checkbox" name="tuesday-11"></td>
+                    <td><input type="checkbox" name="tuesday-12"></td>
+                    <td><input type="checkbox" name="tuesday-1-30"></td>
+                    <td><input type="checkbox" name="tuesday-2-30"></td>
+                    <td><input type="checkbox" name="tuesday-3-30"></td>
+                    <td><input type="checkbox" name="tuesday-4-30"></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td><input type="checkbox" name="wednesday-9"></td>
+                    <td><input type="checkbox" name="wednesday-10"></td>
+                    <td><input type="checkbox" name="wednesday-11"></td>
+                    <td><input type="checkbox" name="wednesday-12"></td>
+                    <td><input type="checkbox" name="wednesday-1-30"></td>
+                    <td><input type="checkbox" name="wednesday-2-30"></td>
+                    <td><input type="checkbox" name="wednesday-3-30"></td>
+                    <td><input type="checkbox" name="wednesday-4-30"></td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td><input type="checkbox" name="thursday-9"></td>
+                    <td><input type="checkbox" name="thursday-10"></td>
+                    <td><input type="checkbox" name="thursday-11"></td>
+                    <td><input type="checkbox" name="thursday-12"></td>
+                    <td><input type="checkbox" name="thursday-1-30"></td>
+                    <td><input type="checkbox" name="thursday-2-30"></td>
+                    <td><input type="checkbox" name="thursday-3-30"></td>
+                    <td><input type="checkbox" name="thursday-4-30"></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td><input type="checkbox" name="friday-9"></td>
+                    <td><input type="checkbox" name="friday-10"></td>
+                    <td><input type="checkbox" name="friday-11"></td>
+                    <td><input type="checkbox" name="friday-12"></td>
+                    <td><input type="checkbox" name="friday-1-30"></td>
+                    <td><input type="checkbox" name="friday-2-30"></td>
+                    <td><input type="checkbox" name="friday-3-30"></td>
+                    <td><input type="checkbox" name="friday-4-30"></td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td><input type="checkbox" name="saturday-9"></td>
+                    <td><input type="checkbox" name="saturday-10"></td>
+                    <td><input type="checkbox" name="saturday-11"></td>
+                    <td><input type="checkbox" name="saturday-12"></td>
+                    <td><input type="checkbox" name="saturday-1-30"></td>
+                    <td><input type="checkbox" name="saturday-2-30"></td>
+                    <td><input type="checkbox" name="saturday-3-30"></td>
+                    <td><input type="checkbox" name="saturday-4-30"></td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td><input type="checkbox" name="sunday-9"></td>
+                    <td><input type="checkbox" name="sunday-10"></td>
+                    <td><input type="checkbox" name="sunday-11"></td>
+                    <td><input type="checkbox" name="sunday-12"></td>
+                    <td><input type="checkbox" name="sunday-1-30"></td>
+                    <td><input type="checkbox" name="sunday-2-30"></td>
+                    <td><input type="checkbox" name="sunday-3-30"></td>
+                    <td><input type="checkbox" name="sunday-4-30"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="checkAvailableEvents()">Check Available Events</button>
+        <button type="button" onclick="saveAvailability()">Save Availability</button>
+
+        <section class="suggestions-section">
+            <h2>Available Events</h2>
+            <ul id="suggestions"></ul>
+        </section>
+    </form>
+    
+    <script src="/js/timetable.js"></script>
+</body>
+</html>

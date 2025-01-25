@@ -58,6 +58,14 @@ app.get("/feature", (req, res) => {
     res.render("feature.ejs");
 });
 
+app.get("/repository", (req, res) => {
+    res.render("repository.ejs");
+});
+
+app.get("/timetable", (req, res) => {
+    res.render("timetable.ejs");
+});
+
 app.get("/contact", (req, res) => {
     res.render("contact.ejs");
 });
