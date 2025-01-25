@@ -1,139 +1,140 @@
-# MSC Project
+Here’s a `README.md` file tailored for your **University Events Platform** project:
 
-## Project Description
-This project is a web-based application built with Node.js, Express, and MongoDB. It is designed to manage and host events with features like event details, prizes, announcements, and application tracking. The application supports a user-friendly interface and connects to a MongoDB database for data storage.
+---
+
+# University Events Platform
+
+## Overview
+The **University Events Platform** is a centralized solution for managing university events such as hackathons, workshops, guest lectures, and seminars. It streamlines event communication by integrating timetable management, personalized notifications, a project repository, skill assessment quizzes, and a chatbot for technical guidance.
 
 ---
 
 ## Features
-- **Event Management**: Add and manage events with detailed descriptions, rules, and deadlines.
-- **Prizes & Tracks**: Define event prizes and tracks with associated details.
-- **Announcements**: Post updates and announcements via Discord links or other messages.
-- **Database Integration**: MongoDB is used for efficient and scalable data storage.
-- **Responsive Design**: Built with EJS for dynamic content rendering and static files in the public directory.
+- **Event Centralization**: Automatically extracts and organizes event data from university email accounts using **IMAP** and Google Generative AI.
+- **Personalized Notifications**: Notifies users about events that fit their free time by cross-referencing their schedules.
+- **Event Filtering**: Allows users to filter events by date, type, and time.
+- **Project Repository**: Enables students to log and track their academic or personal projects.
+- **Skill Assessment Module**: Offers coding and technical quizzes with real-time feedback.
+- **Chatbot Integration**: Provides instant technical assistance and event-related FAQs using **Chatbase.co**.
 
 ---
 
-## Project Structure
-```
-D:\msc
-├── init               # Initialization files (optional)
-├── models             # Mongoose schemas for database models
-├── public             # Static assets (CSS, JS, images)
-├── views              # EJS templates for rendering HTML
-├── index.js           # Main application entry point
-├── package.json       # Project dependencies and metadata
-├── .env               # Environment variables
-```
+## Technologies Used
+### Backend
+- **Node.js**: Server-side programming.
+- **Express.js**: RESTful API development.
+- **MongoDB**: Database for storing event, project, and user data.
+- **imaplib (Python)**: Email parsing and data extraction.
+
+### Frontend
+- **HTML**, **CSS**, **JavaScript**, **Bootstrap**: Interactive user interface.
+
+### AI Tools
+- **Google Generative AI**: For cleaning and structuring email data.
+- **Chatbase.co**: For chatbot integration.
 
 ---
 
 ## Installation and Setup
 
 ### Prerequisites
-- **Node.js** (v16 or higher)
-- **npm** (v8 or higher)
-- **MongoDB** (local or cloud-based, e.g., MongoDB Atlas)
+- **Node.js** and **npm** installed. ([Download](https://nodejs.org/))
+- **MongoDB** database (local or Atlas).
+- **Python 3.x** for email parsing.
 
-### Steps to Run the Project
-
-1. **Clone the Repository**
+### Steps
+1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd msc
+   git clone https://github.com/yourusername/university-events-platform.git
+   cd university-events-platform
    ```
 
-2. **Install Dependencies**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Setup Environment Variables**
-   Create a `.env` file in the root directory and add:
-   ```env
-   DATABASE_URL=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<dbname>?retryWrites=true&w=majority
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory:
+   ```plaintext
+   DATABASE_URL=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<dbname>
    PORT=3000
+   EMAIL_USERNAME=<university_email>
+   EMAIL_PASSWORD=<email_password>
    ```
 
-4. **Run the Application**
+4. **Run the backend:**
+   - For development:
+     ```bash
+     npm run dev
+     ```
    - For production:
      ```bash
-     node index.js
-     ```
-   - For development (with auto-restart):
-     ```bash
-     npx nodemon index.js
+     npm start
      ```
 
-5. **Access the Application**
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. **Run the email extraction script (Python):**
+   ```bash
+   python extract_emails.py
+   ```
+
+6. **Access the application:**
+   Open your browser and visit:
+   ```
+   http://localhost:3000
+   ```
 
 ---
 
-## Dependencies
-- **Express**: Web framework
-- **Mongoose**: MongoDB object modeling
-- **dotenv**: Environment variable management
-- **EJS**: Embedded JavaScript templating
-- **Body-parser**: Request body parsing (optional)
-- **Nodemon**: Development tool for auto-restarting the server
-
-To install all dependencies:
-```bash
-npm install
+## Project Structure
+```
+university-events-platform/
+├── models/             # Mongoose schemas for database
+├── public/             # Static files (CSS, JS, images)
+├── views/              # EJS templates (if applicable)
+├── routes/             # API routes
+├── extract_emails.py   # Python script for IMAP email parsing
+├── .env                # Environment variables
+├── index.js            # Main server file
+├── package.json        # npm configuration
 ```
 
 ---
 
-## Database Setup
-This project uses MongoDB for database operations. Ensure your MongoDB instance is running and update the connection string in the `.env` file.
+## Key Challenges and Solutions
+1. **Email Data Cleaning**:  
+   Challenge: Extracting relevant event details from unstructured email data.  
+   Solution: Utilized **Google Generative AI** to clean and structure the data.  
 
-Example schema (Event model):
-```javascript
-const mongoose = require('mongoose');
+2. **Timetable Matching**:  
+   Challenge: Accurately aligning events with user schedules.  
+   Solution: Implemented a robust backend algorithm in **Node.js**.  
 
-const eventSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  tagline: { type: String, required: true },
-  description: { type: String, required: true },
-  date: {
-    start: { type: Date, required: true },
-    end: { type: Date, required: true },
-  },
-  venue: { type: String, required: true },
-  // More fields as per requirements
-});
-
-const Event = mongoose.model('Event', eventSchema);
-module.exports = Event;
-```
-
----
-
-## Deployment
-### Using Vercel
-1. Install Vercel CLI:
-   ```bash
-   npm install -g vercel
-   ```
-2. Deploy the project:
-   ```bash
-   vercel
-   ```
-3. Configure the root directory (if prompted) and environment variables in the Vercel dashboard.
-
-### Note:
-Ensure your MongoDB connection string is accessible from Vercel's server.
+3. **Chatbot Configuration**:  
+   Challenge: Ensuring meaningful and relevant responses.  
+   Solution: Curated a custom FAQ dataset for **Chatbase.co**.  
 
 ---
 
 ## Future Enhancements
-- Add user authentication for event organizers.
-- Include real-time updates using WebSocket.
-- Create an admin panel for managing events and announcements.
+- Mobile app integration for on-the-go event management.
+- Advanced analytics for event trends and participation.
+- Support for additional university communication platforms.
 
 ---
 
-## Author
-Pankaj Yadav
+## Contributing
+We welcome contributions! Please follow these steps:  
+1. Fork the repository.  
+2. Create a new branch for your feature or bug fix.  
+3. Commit your changes and push them to your fork.  
+4. Submit a pull request.
 
+---
+
+## License
+This project is licensed under the **MIT License**. See the `LICENSE` file for more details.
+
+---
+
+Feel free to adapt this further for your specific needs! 😊
