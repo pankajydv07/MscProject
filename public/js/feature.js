@@ -32,8 +32,8 @@ const features = [
         image: "https://5.imimg.com/data5/PM/IN/RI/SELLER-100932779/oracle-digital-assistant-or-chatbot-software-500x500.png"
     },
     {
-        title: "Timetable Customization",
-        description: "Easily create and manage your class schedule, reminders, and assignment deadlines with our flexible timetable tool.",
+        title: "Personalized Event Notification System",
+        description: " Stay ahead with our smart timetable tool! It analyzes your free slots and sends personalized notifications about events perfectly aligned with your schedule, ensuring you never miss out on opportunities that matter to you.",
         image: "https://i.pinimg.com/736x/5c/fa/77/5cfa778c4ecc475576d96c912e87adf5.jpg"
     },
     {

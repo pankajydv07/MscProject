@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #ffe6d5, #ffd6a5);
+  background: linear-gradient(120deg, #f6f9ff, #e6f2ff);
 }
 
 /* Header */
@@ -11,12 +11,19 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: white;
-  border-bottom: 1px solid #e6e6e6;
+  background: linear-gradient(90deg, #4c4cfc 0%, #7851fc 100%);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
   max-height: 50px;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* Login Form */
@@ -42,7 +49,7 @@ body {
 }
 
 .subtext a {
-  color: #ff6600;
+  color: #4c4cfc;
   text-decoration: none;
 }
 
@@ -75,7 +82,7 @@ body {
   text-align: right;
   font-size: 12px;
   margin-bottom: 15px;
-  color: #0066ff;
+  color: #4c4cfc;
   text-decoration: none;
 }
 
@@ -84,7 +91,7 @@ body {
 }
 
 .primary-btn {
-  background-color: #0066ff;
+  background-color: #4c4cfc;
   color: white;
   padding: 10px;
   border: none;
@@ -96,7 +103,7 @@ body {
 }
 
 .primary-btn:hover {
-  background-color: #0052cc;
+  background-color: #3a3ae8;
 }
 
 .divider {
@@ -142,7 +149,6 @@ body {
 
 .facebook-btn {
   background-color: #3b5998;
-  
 }
 
 .facebook-btn:hover {
@@ -151,7 +157,6 @@ body {
 
 .google-btn {
   background-color: #db4437;
-  
 }
 
 .google-btn:hover {

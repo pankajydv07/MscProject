@@ -87,13 +87,14 @@ app.get("/organize", (req, res) => {
 });
 
 app.post("/explore", async (req, res) => {
-    const { name, tagline, description, date, venue, mode, tracks, rules, contact_email, host, event_type, timezone, contact, countdown } = req.body;
+    const { name, tagline, description, date, venue, img = "https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/ai-ml/artificial-intelligence-1920.jpg", mode, tracks, rules, contact_email, host, event_type, timezone, contact, countdown } = req.body;
     const newEvent = new Event({ 
         name, 
         tagline, 
         description, 
         date: { start: date.start, end: date.end }, 
-        venue, 
+        venue,
+        img, 
         mode, 
         tracks, 
         rules, 

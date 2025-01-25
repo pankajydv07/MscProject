@@ -1,13 +1,12 @@
 /* General Reset */
 /* Boilerplate Modern Styling */
 
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', Arial, sans-serif;
     background: #f5f5f5;
-    color: #83ef3b;
+    color: #333;
 }
 
 header {
@@ -41,7 +40,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     font-weight: bold;
-    color: rgb(17, 5, 5);
+    color: #fff;
     font-size: 1.2rem;
     padding: 15px 25px;
     border-radius: 5px;
@@ -52,7 +51,7 @@ nav ul li a {
 
 nav ul li a:hover {
     transform: translateY(-3px);
-    background-color: #4c4cfc;
+    background-color: #3b3bfc;
 }
 
 /* Animations */
@@ -75,7 +74,6 @@ nav ul li a:hover {
         transform: translateY(-5px);
     }
 }
-
 
 body {
     margin: 0;
@@ -315,7 +313,6 @@ footer {
     }
 }
 
-
 @keyframes zoomIn {
     from {
         transform: scale(0.8);
@@ -327,7 +324,6 @@ footer {
     }
 }
 
-
 .about-hero {
     text-align: center;
     padding: 4rem 0;
@@ -335,10 +331,15 @@ footer {
     margin-bottom: 3rem;
 }
 
-.subtitle {
+.about-hero h2 {
+    font-size: 2.5rem;
+    color: #4c4cfc;
+    margin-bottom: 1rem;
+}
+
+.about-hero p {
     font-size: 1.2rem;
     color: #666;
-    margin-top: 1rem;
 }
 
 .mission-vision {
@@ -353,6 +354,20 @@ footer {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
+}
+
+.mission h2, .vision h2 {
+    color: #4c4cfc;
+    margin-bottom: 1rem;
+}
+
+.mission ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.mission ul li {
+    margin-bottom: 0.5rem;
 }
 
 .stats-section {

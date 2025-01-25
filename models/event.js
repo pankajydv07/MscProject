@@ -55,8 +55,10 @@ const eventSchema = new mongoose.Schema({
   countdown: {
     type: String,
   },
-  img:{
+  img: {
     type: String,
+    default: 'https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/ai-ml/artificial-intelligence-1920.jpg',
+    set: v => v.trim() === '' ? 'https://www.lockheedmartin.com/content/dam/lockheed-martin/eo/photo/ai-ml/artificial-intelligence-1920.jpg' : v,
   },
   link:{
     type: String,
