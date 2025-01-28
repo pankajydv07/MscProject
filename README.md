@@ -1,6 +1,4 @@
-Here’s a `README.md` file tailored for your **University Events Platform** project:
 
----
 
 # University Events Platform
 
