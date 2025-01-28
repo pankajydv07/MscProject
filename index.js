@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+  }
 const express = require("express");
 const app = express();
 const ejsMate = require("ejs-mate");
@@ -12,7 +15,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.engine("ejs", ejsMate);
-
+ 
 
 // Connect to MongoDB
 main()
@@ -24,7 +27,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/mscproject");
+  await mongoose.connect(process.env.dburl);
 }
 
 // Routes
