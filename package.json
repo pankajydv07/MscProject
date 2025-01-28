@@ -1,8 +1,14 @@
+
 {
+  "engines": {
+    "node": "22.12.0"
+  },
+  
   "name": "msc",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
